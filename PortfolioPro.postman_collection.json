@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "f3336aa2-959b-4d30-a013-8e2a57c77ff1",
+		"name": "PortfolioPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21582998"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"souvik1\",\r\n    \"fullName\": \"Souvik Kar\",\r\n    \"email\": \"souvik@gmail.com\",\r\n    \"password\": \"test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6363/api/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"souvik1\",\r\n    \"password\": \"test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6363/api/auth/signin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Username Exists (Public)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"souvik1\",\r\n    \"password\": \"test@123\"\r\n}"
+						},
+						"url": "http://localhost:6363/api/users/exists/souvik1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\":\"Kolkata\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6363/api/users/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "portfolio",
+			"item": [
+				{
+					"name": "Create First Portfolio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"portfolioTitle\": \"John Doe's Portfolio\",\r\n    \"about\": \"A passionate software developer with experience in building scalable applications.\",\r\n    \"bio\": \"5+ years of experience in full-stack development, specializing in Java and Spring Boot.\",\r\n    \"professionalIdentity\": \"Software Engineer\",\r\n    \"profilePhotoUrl\": \"https://example.com/profile.jpg\",\r\n    \"experienceDtos\": [\r\n        {\r\n            \"jobTitle\": \"Senior Developer\",\r\n            \"startingDate\": \"2020-06-01\",\r\n            \"endingDate\": \"2023-05-30\",\r\n            \"description\": \"Led a team of developers to build enterprise applications.\",\r\n            \"company\": \"Tech Corp\"\r\n        },\r\n        {\r\n            \"jobTitle\": \"Software Engineer\",\r\n            \"startingDate\": \"2018-01-15\",\r\n            \"endingDate\": \"2020-05-31\",\r\n            \"description\": \"Developed microservices architecture applications.\",\r\n            \"company\": \"Innovate Ltd\"\r\n        }\r\n    ],\r\n    \"projectDtos\": [\r\n        {\r\n            \"projectName\": \"E-Commerce Platform\",\r\n            \"description\": \"A scalable e-commerce platform with secure payment integration.\",\r\n            \"link\": \"https://github.com/user/ecommerce\",\r\n            \"technologies\": \"Java, Spring Boot,React\"\r\n        },\r\n        {\r\n            \"projectName\": \"Social Media App\",\r\n            \"description\": \"A real-time chat and social media platform.\",\r\n            \"link\": \"https://github.com/user/social-app\",\r\n            \"technologies\": \"Node.js, Express, MongoDB\"\r\n        }\r\n    ],\r\n    \"skills\": \"Java, Spring Boot, React, Node.js\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6363/api/portfolios/create-first"
+					},
+					"response": []
+				},
+				{
+					"name": "All Portfolio of User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6363/api/portfolios/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Portfolio By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6363/api/portfolios/one/1"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\":\"Kolkata\"\r\n}"
+						},
+						"url": "http://localhost:6363/api/portfolios/remove/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "Portfolio By username and portfolioId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"souvik1\",\r\n    \"password\": \"test@123\"\r\n}"
+						},
+						"url": "http://localhost:6363/api/public/souvik1/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
